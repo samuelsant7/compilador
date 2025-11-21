@@ -57,6 +57,7 @@ compilador_projeto/
 2. Configurar o Ambiente Virtual
 
    2.1. Criar o ambiente virtual:
-       | python -m venv venv
+
+         | python -m venv venv
 
 

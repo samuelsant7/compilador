@@ -52,9 +52,9 @@ compilador_projeto/
 
 ### Como Executar o Programa
 
-1. Abra a pasta "compilador_projeto" no **Prompt de Comando** ou **PowerShell** do Windows
+##1. Abra a pasta "compilador_projeto" no **Prompt de Comando** ou **PowerShell** do Windows##
 
-2. Configurar o Ambiente Virtual
+##2. Configurar o Ambiente Virtual##
 
    2.1. Criar o ambiente virtual:
 
@@ -69,11 +69,11 @@ compilador_projeto/
 
          | Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 
-3.  Instalar a Dependência
+##3.  Instalar a Dependência##
 
          | pip install ply
 
-4. Executar o Projeto
+##4. Executar o Projeto##
 
          | python src/main.py
 

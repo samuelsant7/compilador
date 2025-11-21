@@ -25,22 +25,6 @@ O projeto será dividido nas seguintes fases:
 
 A implementação será feita em **Python** devido à sua clareza e facilidade de prototipagem, utilizando a biblioteca `ply` (Python Lex-Yacc) para as fases de análise léxica e sintática, o que simplifica a construção do parser LL(1) ou LR.
 
-### Estrutura de Diretórios
-
-```
-compilador_projeto/
-├── src/
-│   ├── lexer.py          # Analisador Léxico (PLY/Lex)
-│   ├── parser.py         # Analisador Sintático (PLY/Yacc) e AST
-│   ├── semantic_analyzer.py # Análise Semântica e Tabela de Símbolos
-│   ├── intermediate_code_gen.py # Geração de Código Intermediário
-│   └── main.py           # Ponto de entrada do compilador
-├── tests/
-│   ├── test_valid.txt    # Casos de teste válidos
-│   └── test_invalid.txt  # Casos de teste inválidos
-└── README.md             # Documentação do projeto
-```
-
 ## Como Executar o Programa
 
 ### 1. Abra a pasta "compilador_projeto" no **Prompt de Comando** ou **PowerShell** do Windows
@@ -68,6 +52,21 @@ compilador_projeto/
 
          python src/main.py
 
+### Estrutura de Diretórios
+
+```
+compilador_projeto/
+├── src/
+│   ├── lexer.py          # Analisador Léxico (PLY/Lex)
+│   ├── parser.py         # Analisador Sintático (PLY/Yacc) e AST
+│   ├── semantic_analyzer.py # Análise Semântica e Tabela de Símbolos
+│   ├── intermediate_code_gen.py # Geração de Código Intermediário
+│   └── main.py           # Ponto de entrada do compilador
+├── tests/
+│   ├── test_valid.txt    # Casos de teste válidos
+│   └── test_invalid.txt  # Casos de teste inválidos
+└── README.md             # Documentação do projeto
+```
 
 ### Detalhamento da Implementação
 

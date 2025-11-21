@@ -1,0 +1,20 @@
+# Caso de Teste Válido 1: Declaração de função e chamada
+funcao soma(a, b) = a + b
+resultado = soma(5, 3)
+
+# Caso de Teste Válido 2: Atribuições e expressões complexas
+x = 10
+y = 2.5
+z = (x * y) ^ 2 - 5 / 2
+
+# Caso de Teste Válido 3: Função com um único parâmetro e expressão unária
+funcao negativo(n) = -n
+valor = negativo(100)
+
+# Caso de Teste Válido 4: Função sem parâmetros
+funcao constante() = 42
+c = constante()
+
+# Caso de Teste Válido 5: Expressão com precedência de operadores
+a = 1 + 2 * 3 ^ 2 / 6
+# Esperado: 1 + (2 * (3^2)) / 6 = 1 + (2 * 9) / 6 = 1 + 18 / 6 = 1 + 3 = 4

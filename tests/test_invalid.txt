@@ -1,0 +1,16 @@
+# Caso de Teste Inválido 1: Erro Sintático (Ponto e vírgula ausente - não suportado pela gramática, mas testando erro)
+a = 10 b = 20
+
+# Caso de Teste Inválido 2: Erro Semântico (Variável não declarada)
+x = y + 1
+
+# Caso de Teste Inválido 3: Erro Semântico (Chamada de função com número incorreto de argumentos)
+funcao f(a, b) = a + b
+c = f(1)
+
+# Caso de Teste Inválido 4: Erro Semântico (Redeclaração de função)
+funcao g(x) = x
+funcao g(y) = y * 2
+
+# Caso de Teste Inválido 5: Erro Léxico (Caractere ilegal)
+a = 10$

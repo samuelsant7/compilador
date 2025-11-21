@@ -1,0 +1,850 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    ATRIBUICAO
+
+Grammar
+
+Rule 0     S' -> programa
+Rule 1     programa -> sentencas
+Rule 2     sentencas -> sentenca sentencas
+Rule 3     sentencas -> sentenca
+Rule 4     sentenca -> atribuicao
+Rule 5     sentenca -> declaracao_funcao
+Rule 6     atribuicao -> ID IGUAL expressao
+Rule 7     declaracao_funcao -> FUNCAO ID ABRE_PARENTESES parametros_formais FECHA_PARENTESES IGUAL expressao
+Rule 8     parametros_formais -> lista_ids
+Rule 9     parametros_formais -> empty
+Rule 10    lista_ids -> ID VIRGULA lista_ids
+Rule 11    lista_ids -> ID
+Rule 12    expressao -> expressao SOMA expressao
+Rule 13    expressao -> expressao SUBTRACAO expressao
+Rule 14    expressao -> expressao MULTIPLICACAO expressao
+Rule 15    expressao -> expressao DIVISAO expressao
+Rule 16    expressao -> expressao POTENCIA expressao
+Rule 17    expressao -> SUBTRACAO expressao
+Rule 18    expressao -> ABRE_PARENTESES expressao FECHA_PARENTESES
+Rule 19    expressao -> NUM_INT
+Rule 20    expressao -> NUM_FLOAT
+Rule 21    expressao -> ID
+Rule 22    expressao -> ID ABRE_PARENTESES argumentos FECHA_PARENTESES
+Rule 23    argumentos -> lista_expressoes
+Rule 24    argumentos -> empty
+Rule 25    lista_expressoes -> expressao VIRGULA lista_expressoes
+Rule 26    lista_expressoes -> expressao
+Rule 27    empty -> <empty>
+
+Terminals, with rules where they appear
+
+ABRE_PARENTESES      : 7 18 22
+ATRIBUICAO           : 
+DIVISAO              : 15
+FECHA_PARENTESES     : 7 18 22
+FUNCAO               : 7
+ID                   : 6 7 10 11 21 22
+IGUAL                : 6 7
+MULTIPLICACAO        : 14
+NUM_FLOAT            : 20
+NUM_INT              : 19
+POTENCIA             : 16
+SOMA                 : 12
+SUBTRACAO            : 13 17
+VIRGULA              : 10 25
+error                : 
+
+Nonterminals, with rules where they appear
+
+argumentos           : 22
+atribuicao           : 4
+declaracao_funcao    : 5
+empty                : 9 24
+expressao            : 6 7 12 12 13 13 14 14 15 15 16 16 17 18 25 26
+lista_expressoes     : 23 25
+lista_ids            : 8 10
+parametros_formais   : 7
+programa             : 0
+sentenca             : 2 3
+sentencas            : 1 2
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . programa
+    (1) programa -> . sentencas
+    (2) sentencas -> . sentenca sentencas
+    (3) sentencas -> . sentenca
+    (4) sentenca -> . atribuicao
+    (5) sentenca -> . declaracao_funcao
+    (6) atribuicao -> . ID IGUAL expressao
+    (7) declaracao_funcao -> . FUNCAO ID ABRE_PARENTESES parametros_formais FECHA_PARENTESES IGUAL expressao
+
+    ID              shift and go to state 6
+    FUNCAO          shift and go to state 7
+
+    programa                       shift and go to state 1
+    sentencas                      shift and go to state 2
+    sentenca                       shift and go to state 3
+    atribuicao                     shift and go to state 4
+    declaracao_funcao              shift and go to state 5
+
+state 1
+
+    (0) S' -> programa .
+
+
+
+state 2
+
+    (1) programa -> sentencas .
+
+    $end            reduce using rule 1 (programa -> sentencas .)
+
+
+state 3
+
+    (2) sentencas -> sentenca . sentencas
+    (3) sentencas -> sentenca .
+    (2) sentencas -> . sentenca sentencas
+    (3) sentencas -> . sentenca
+    (4) sentenca -> . atribuicao
+    (5) sentenca -> . declaracao_funcao
+    (6) atribuicao -> . ID IGUAL expressao
+    (7) declaracao_funcao -> . FUNCAO ID ABRE_PARENTESES parametros_formais FECHA_PARENTESES IGUAL expressao
+
+    $end            reduce using rule 3 (sentencas -> sentenca .)
+    ID              shift and go to state 6
+    FUNCAO          shift and go to state 7
+
+    sentenca                       shift and go to state 3
+    sentencas                      shift and go to state 8
+    atribuicao                     shift and go to state 4
+    declaracao_funcao              shift and go to state 5
+
+state 4
+
+    (4) sentenca -> atribuicao .
+
+    ID              reduce using rule 4 (sentenca -> atribuicao .)
+    FUNCAO          reduce using rule 4 (sentenca -> atribuicao .)
+    $end            reduce using rule 4 (sentenca -> atribuicao .)
+
+
+state 5
+
+    (5) sentenca -> declaracao_funcao .
+
+    ID              reduce using rule 5 (sentenca -> declaracao_funcao .)
+    FUNCAO          reduce using rule 5 (sentenca -> declaracao_funcao .)
+    $end            reduce using rule 5 (sentenca -> declaracao_funcao .)
+
+
+state 6
+
+    (6) atribuicao -> ID . IGUAL expressao
+
+    IGUAL           shift and go to state 9
+
+
+state 7
+
+    (7) declaracao_funcao -> FUNCAO . ID ABRE_PARENTESES parametros_formais FECHA_PARENTESES IGUAL expressao
+
+    ID              shift and go to state 10
+
+
+state 8
+
+    (2) sentencas -> sentenca sentencas .
+
+    $end            reduce using rule 2 (sentencas -> sentenca sentencas .)
+
+
+state 9
+
+    (6) atribuicao -> ID IGUAL . expressao
+    (12) expressao -> . expressao SOMA expressao
+    (13) expressao -> . expressao SUBTRACAO expressao
+    (14) expressao -> . expressao MULTIPLICACAO expressao
+    (15) expressao -> . expressao DIVISAO expressao
+    (16) expressao -> . expressao POTENCIA expressao
+    (17) expressao -> . SUBTRACAO expressao
+    (18) expressao -> . ABRE_PARENTESES expressao FECHA_PARENTESES
+    (19) expressao -> . NUM_INT
+    (20) expressao -> . NUM_FLOAT
+    (21) expressao -> . ID
+    (22) expressao -> . ID ABRE_PARENTESES argumentos FECHA_PARENTESES
+
+    SUBTRACAO       shift and go to state 13
+    ABRE_PARENTESES shift and go to state 14
+    NUM_INT         shift and go to state 15
+    NUM_FLOAT       shift and go to state 16
+    ID              shift and go to state 11
+
+    expressao                      shift and go to state 12
+
+state 10
+
+    (7) declaracao_funcao -> FUNCAO ID . ABRE_PARENTESES parametros_formais FECHA_PARENTESES IGUAL expressao
+
+    ABRE_PARENTESES shift and go to state 17
+
+
+state 11
+
+    (21) expressao -> ID .
+    (22) expressao -> ID . ABRE_PARENTESES argumentos FECHA_PARENTESES
+
+    SOMA            reduce using rule 21 (expressao -> ID .)
+    SUBTRACAO       reduce using rule 21 (expressao -> ID .)
+    MULTIPLICACAO   reduce using rule 21 (expressao -> ID .)
+    DIVISAO         reduce using rule 21 (expressao -> ID .)
+    POTENCIA        reduce using rule 21 (expressao -> ID .)
+    ID              reduce using rule 21 (expressao -> ID .)
+    FUNCAO          reduce using rule 21 (expressao -> ID .)
+    $end            reduce using rule 21 (expressao -> ID .)
+    FECHA_PARENTESES reduce using rule 21 (expressao -> ID .)
+    VIRGULA         reduce using rule 21 (expressao -> ID .)
+    ABRE_PARENTESES shift and go to state 18
+
+
+state 12
+
+    (6) atribuicao -> ID IGUAL expressao .
+    (12) expressao -> expressao . SOMA expressao
+    (13) expressao -> expressao . SUBTRACAO expressao
+    (14) expressao -> expressao . MULTIPLICACAO expressao
+    (15) expressao -> expressao . DIVISAO expressao
+    (16) expressao -> expressao . POTENCIA expressao
+
+    ID              reduce using rule 6 (atribuicao -> ID IGUAL expressao .)
+    FUNCAO          reduce using rule 6 (atribuicao -> ID IGUAL expressao .)
+    $end            reduce using rule 6 (atribuicao -> ID IGUAL expressao .)
+    SOMA            shift and go to state 19
+    SUBTRACAO       shift and go to state 20
+    MULTIPLICACAO   shift and go to state 21
+    DIVISAO         shift and go to state 22
+    POTENCIA        shift and go to state 23
+
+
+state 13
+
+    (17) expressao -> SUBTRACAO . expressao
+    (12) expressao -> . expressao SOMA expressao
+    (13) expressao -> . expressao SUBTRACAO expressao
+    (14) expressao -> . expressao MULTIPLICACAO expressao
+    (15) expressao -> . expressao DIVISAO expressao
+    (16) expressao -> . expressao POTENCIA expressao
+    (17) expressao -> . SUBTRACAO expressao
+    (18) expressao -> . ABRE_PARENTESES expressao FECHA_PARENTESES
+    (19) expressao -> . NUM_INT
+    (20) expressao -> . NUM_FLOAT
+    (21) expressao -> . ID
+    (22) expressao -> . ID ABRE_PARENTESES argumentos FECHA_PARENTESES
+
+    SUBTRACAO       shift and go to state 13
+    ABRE_PARENTESES shift and go to state 14
+    NUM_INT         shift and go to state 15
+    NUM_FLOAT       shift and go to state 16
+    ID              shift and go to state 11
+
+    expressao                      shift and go to state 24
+
+state 14
+
+    (18) expressao -> ABRE_PARENTESES . expressao FECHA_PARENTESES
+    (12) expressao -> . expressao SOMA expressao
+    (13) expressao -> . expressao SUBTRACAO expressao
+    (14) expressao -> . expressao MULTIPLICACAO expressao
+    (15) expressao -> . expressao DIVISAO expressao
+    (16) expressao -> . expressao POTENCIA expressao
+    (17) expressao -> . SUBTRACAO expressao
+    (18) expressao -> . ABRE_PARENTESES expressao FECHA_PARENTESES
+    (19) expressao -> . NUM_INT
+    (20) expressao -> . NUM_FLOAT
+    (21) expressao -> . ID
+    (22) expressao -> . ID ABRE_PARENTESES argumentos FECHA_PARENTESES
+
+    SUBTRACAO       shift and go to state 13
+    ABRE_PARENTESES shift and go to state 14
+    NUM_INT         shift and go to state 15
+    NUM_FLOAT       shift and go to state 16
+    ID              shift and go to state 11
+
+    expressao                      shift and go to state 25
+
+state 15
+
+    (19) expressao -> NUM_INT .
+
+    SOMA            reduce using rule 19 (expressao -> NUM_INT .)
+    SUBTRACAO       reduce using rule 19 (expressao -> NUM_INT .)
+    MULTIPLICACAO   reduce using rule 19 (expressao -> NUM_INT .)
+    DIVISAO         reduce using rule 19 (expressao -> NUM_INT .)
+    POTENCIA        reduce using rule 19 (expressao -> NUM_INT .)
+    ID              reduce using rule 19 (expressao -> NUM_INT .)
+    FUNCAO          reduce using rule 19 (expressao -> NUM_INT .)
+    $end            reduce using rule 19 (expressao -> NUM_INT .)
+    FECHA_PARENTESES reduce using rule 19 (expressao -> NUM_INT .)
+    VIRGULA         reduce using rule 19 (expressao -> NUM_INT .)
+
+
+state 16
+
+    (20) expressao -> NUM_FLOAT .
+
+    SOMA            reduce using rule 20 (expressao -> NUM_FLOAT .)
+    SUBTRACAO       reduce using rule 20 (expressao -> NUM_FLOAT .)
+    MULTIPLICACAO   reduce using rule 20 (expressao -> NUM_FLOAT .)
+    DIVISAO         reduce using rule 20 (expressao -> NUM_FLOAT .)
+    POTENCIA        reduce using rule 20 (expressao -> NUM_FLOAT .)
+    ID              reduce using rule 20 (expressao -> NUM_FLOAT .)
+    FUNCAO          reduce using rule 20 (expressao -> NUM_FLOAT .)
+    $end            reduce using rule 20 (expressao -> NUM_FLOAT .)
+    FECHA_PARENTESES reduce using rule 20 (expressao -> NUM_FLOAT .)
+    VIRGULA         reduce using rule 20 (expressao -> NUM_FLOAT .)
+
+
+state 17
+
+    (7) declaracao_funcao -> FUNCAO ID ABRE_PARENTESES . parametros_formais FECHA_PARENTESES IGUAL expressao
+    (8) parametros_formais -> . lista_ids
+    (9) parametros_formais -> . empty
+    (10) lista_ids -> . ID VIRGULA lista_ids
+    (11) lista_ids -> . ID
+    (27) empty -> .
+
+    ID              shift and go to state 26
+    FECHA_PARENTESES reduce using rule 27 (empty -> .)
+
+    parametros_formais             shift and go to state 27
+    lista_ids                      shift and go to state 28
+    empty                          shift and go to state 29
+
+state 18
+
+    (22) expressao -> ID ABRE_PARENTESES . argumentos FECHA_PARENTESES
+    (23) argumentos -> . lista_expressoes
+    (24) argumentos -> . empty
+    (25) lista_expressoes -> . expressao VIRGULA lista_expressoes
+    (26) lista_expressoes -> . expressao
+    (27) empty -> .
+    (12) expressao -> . expressao SOMA expressao
+    (13) expressao -> . expressao SUBTRACAO expressao
+    (14) expressao -> . expressao MULTIPLICACAO expressao
+    (15) expressao -> . expressao DIVISAO expressao
+    (16) expressao -> . expressao POTENCIA expressao
+    (17) expressao -> . SUBTRACAO expressao
+    (18) expressao -> . ABRE_PARENTESES expressao FECHA_PARENTESES
+    (19) expressao -> . NUM_INT
+    (20) expressao -> . NUM_FLOAT
+    (21) expressao -> . ID
+    (22) expressao -> . ID ABRE_PARENTESES argumentos FECHA_PARENTESES
+
+    FECHA_PARENTESES reduce using rule 27 (empty -> .)
+    SUBTRACAO       shift and go to state 13
+    ABRE_PARENTESES shift and go to state 14
+    NUM_INT         shift and go to state 15
+    NUM_FLOAT       shift and go to state 16
+    ID              shift and go to state 11
+
+    argumentos                     shift and go to state 30
+    lista_expressoes               shift and go to state 31
+    empty                          shift and go to state 32
+    expressao                      shift and go to state 33
+
+state 19
+
+    (12) expressao -> expressao SOMA . expressao
+    (12) expressao -> . expressao SOMA expressao
+    (13) expressao -> . expressao SUBTRACAO expressao
+    (14) expressao -> . expressao MULTIPLICACAO expressao
+    (15) expressao -> . expressao DIVISAO expressao
+    (16) expressao -> . expressao POTENCIA expressao
+    (17) expressao -> . SUBTRACAO expressao
+    (18) expressao -> . ABRE_PARENTESES expressao FECHA_PARENTESES
+    (19) expressao -> . NUM_INT
+    (20) expressao -> . NUM_FLOAT
+    (21) expressao -> . ID
+    (22) expressao -> . ID ABRE_PARENTESES argumentos FECHA_PARENTESES
+
+    SUBTRACAO       shift and go to state 13
+    ABRE_PARENTESES shift and go to state 14
+    NUM_INT         shift and go to state 15
+    NUM_FLOAT       shift and go to state 16
+    ID              shift and go to state 11
+
+    expressao                      shift and go to state 34
+
+state 20
+
+    (13) expressao -> expressao SUBTRACAO . expressao
+    (12) expressao -> . expressao SOMA expressao
+    (13) expressao -> . expressao SUBTRACAO expressao
+    (14) expressao -> . expressao MULTIPLICACAO expressao
+    (15) expressao -> . expressao DIVISAO expressao
+    (16) expressao -> . expressao POTENCIA expressao
+    (17) expressao -> . SUBTRACAO expressao
+    (18) expressao -> . ABRE_PARENTESES expressao FECHA_PARENTESES
+    (19) expressao -> . NUM_INT
+    (20) expressao -> . NUM_FLOAT
+    (21) expressao -> . ID
+    (22) expressao -> . ID ABRE_PARENTESES argumentos FECHA_PARENTESES
+
+    SUBTRACAO       shift and go to state 13
+    ABRE_PARENTESES shift and go to state 14
+    NUM_INT         shift and go to state 15
+    NUM_FLOAT       shift and go to state 16
+    ID              shift and go to state 11
+
+    expressao                      shift and go to state 35
+
+state 21
+
+    (14) expressao -> expressao MULTIPLICACAO . expressao
+    (12) expressao -> . expressao SOMA expressao
+    (13) expressao -> . expressao SUBTRACAO expressao
+    (14) expressao -> . expressao MULTIPLICACAO expressao
+    (15) expressao -> . expressao DIVISAO expressao
+    (16) expressao -> . expressao POTENCIA expressao
+    (17) expressao -> . SUBTRACAO expressao
+    (18) expressao -> . ABRE_PARENTESES expressao FECHA_PARENTESES
+    (19) expressao -> . NUM_INT
+    (20) expressao -> . NUM_FLOAT
+    (21) expressao -> . ID
+    (22) expressao -> . ID ABRE_PARENTESES argumentos FECHA_PARENTESES
+
+    SUBTRACAO       shift and go to state 13
+    ABRE_PARENTESES shift and go to state 14
+    NUM_INT         shift and go to state 15
+    NUM_FLOAT       shift and go to state 16
+    ID              shift and go to state 11
+
+    expressao                      shift and go to state 36
+
+state 22
+
+    (15) expressao -> expressao DIVISAO . expressao
+    (12) expressao -> . expressao SOMA expressao
+    (13) expressao -> . expressao SUBTRACAO expressao
+    (14) expressao -> . expressao MULTIPLICACAO expressao
+    (15) expressao -> . expressao DIVISAO expressao
+    (16) expressao -> . expressao POTENCIA expressao
+    (17) expressao -> . SUBTRACAO expressao
+    (18) expressao -> . ABRE_PARENTESES expressao FECHA_PARENTESES
+    (19) expressao -> . NUM_INT
+    (20) expressao -> . NUM_FLOAT
+    (21) expressao -> . ID
+    (22) expressao -> . ID ABRE_PARENTESES argumentos FECHA_PARENTESES
+
+    SUBTRACAO       shift and go to state 13
+    ABRE_PARENTESES shift and go to state 14
+    NUM_INT         shift and go to state 15
+    NUM_FLOAT       shift and go to state 16
+    ID              shift and go to state 11
+
+    expressao                      shift and go to state 37
+
+state 23
+
+    (16) expressao -> expressao POTENCIA . expressao
+    (12) expressao -> . expressao SOMA expressao
+    (13) expressao -> . expressao SUBTRACAO expressao
+    (14) expressao -> . expressao MULTIPLICACAO expressao
+    (15) expressao -> . expressao DIVISAO expressao
+    (16) expressao -> . expressao POTENCIA expressao
+    (17) expressao -> . SUBTRACAO expressao
+    (18) expressao -> . ABRE_PARENTESES expressao FECHA_PARENTESES
+    (19) expressao -> . NUM_INT
+    (20) expressao -> . NUM_FLOAT
+    (21) expressao -> . ID
+    (22) expressao -> . ID ABRE_PARENTESES argumentos FECHA_PARENTESES
+
+    SUBTRACAO       shift and go to state 13
+    ABRE_PARENTESES shift and go to state 14
+    NUM_INT         shift and go to state 15
+    NUM_FLOAT       shift and go to state 16
+    ID              shift and go to state 11
+
+    expressao                      shift and go to state 38
+
+state 24
+
+    (17) expressao -> SUBTRACAO expressao .
+    (12) expressao -> expressao . SOMA expressao
+    (13) expressao -> expressao . SUBTRACAO expressao
+    (14) expressao -> expressao . MULTIPLICACAO expressao
+    (15) expressao -> expressao . DIVISAO expressao
+    (16) expressao -> expressao . POTENCIA expressao
+
+    SOMA            reduce using rule 17 (expressao -> SUBTRACAO expressao .)
+    SUBTRACAO       reduce using rule 17 (expressao -> SUBTRACAO expressao .)
+    ID              reduce using rule 17 (expressao -> SUBTRACAO expressao .)
+    FUNCAO          reduce using rule 17 (expressao -> SUBTRACAO expressao .)
+    $end            reduce using rule 17 (expressao -> SUBTRACAO expressao .)
+    FECHA_PARENTESES reduce using rule 17 (expressao -> SUBTRACAO expressao .)
+    VIRGULA         reduce using rule 17 (expressao -> SUBTRACAO expressao .)
+    MULTIPLICACAO   shift and go to state 21
+    DIVISAO         shift and go to state 22
+    POTENCIA        shift and go to state 23
+
+  ! MULTIPLICACAO   [ reduce using rule 17 (expressao -> SUBTRACAO expressao .) ]
+  ! DIVISAO         [ reduce using rule 17 (expressao -> SUBTRACAO expressao .) ]
+  ! POTENCIA        [ reduce using rule 17 (expressao -> SUBTRACAO expressao .) ]
+  ! SOMA            [ shift and go to state 19 ]
+  ! SUBTRACAO       [ shift and go to state 20 ]
+
+
+state 25
+
+    (18) expressao -> ABRE_PARENTESES expressao . FECHA_PARENTESES
+    (12) expressao -> expressao . SOMA expressao
+    (13) expressao -> expressao . SUBTRACAO expressao
+    (14) expressao -> expressao . MULTIPLICACAO expressao
+    (15) expressao -> expressao . DIVISAO expressao
+    (16) expressao -> expressao . POTENCIA expressao
+
+    FECHA_PARENTESES shift and go to state 39
+    SOMA            shift and go to state 19
+    SUBTRACAO       shift and go to state 20
+    MULTIPLICACAO   shift and go to state 21
+    DIVISAO         shift and go to state 22
+    POTENCIA        shift and go to state 23
+
+
+state 26
+
+    (10) lista_ids -> ID . VIRGULA lista_ids
+    (11) lista_ids -> ID .
+
+    VIRGULA         shift and go to state 40
+    FECHA_PARENTESES reduce using rule 11 (lista_ids -> ID .)
+
+
+state 27
+
+    (7) declaracao_funcao -> FUNCAO ID ABRE_PARENTESES parametros_formais . FECHA_PARENTESES IGUAL expressao
+
+    FECHA_PARENTESES shift and go to state 41
+
+
+state 28
+
+    (8) parametros_formais -> lista_ids .
+
+    FECHA_PARENTESES reduce using rule 8 (parametros_formais -> lista_ids .)
+
+
+state 29
+
+    (9) parametros_formais -> empty .
+
+    FECHA_PARENTESES reduce using rule 9 (parametros_formais -> empty .)
+
+
+state 30
+
+    (22) expressao -> ID ABRE_PARENTESES argumentos . FECHA_PARENTESES
+
+    FECHA_PARENTESES shift and go to state 42
+
+
+state 31
+
+    (23) argumentos -> lista_expressoes .
+
+    FECHA_PARENTESES reduce using rule 23 (argumentos -> lista_expressoes .)
+
+
+state 32
+
+    (24) argumentos -> empty .
+
+    FECHA_PARENTESES reduce using rule 24 (argumentos -> empty .)
+
+
+state 33
+
+    (25) lista_expressoes -> expressao . VIRGULA lista_expressoes
+    (26) lista_expressoes -> expressao .
+    (12) expressao -> expressao . SOMA expressao
+    (13) expressao -> expressao . SUBTRACAO expressao
+    (14) expressao -> expressao . MULTIPLICACAO expressao
+    (15) expressao -> expressao . DIVISAO expressao
+    (16) expressao -> expressao . POTENCIA expressao
+
+    VIRGULA         shift and go to state 43
+    FECHA_PARENTESES reduce using rule 26 (lista_expressoes -> expressao .)
+    SOMA            shift and go to state 19
+    SUBTRACAO       shift and go to state 20
+    MULTIPLICACAO   shift and go to state 21
+    DIVISAO         shift and go to state 22
+    POTENCIA        shift and go to state 23
+
+
+state 34
+
+    (12) expressao -> expressao SOMA expressao .
+    (12) expressao -> expressao . SOMA expressao
+    (13) expressao -> expressao . SUBTRACAO expressao
+    (14) expressao -> expressao . MULTIPLICACAO expressao
+    (15) expressao -> expressao . DIVISAO expressao
+    (16) expressao -> expressao . POTENCIA expressao
+
+    SOMA            reduce using rule 12 (expressao -> expressao SOMA expressao .)
+    SUBTRACAO       reduce using rule 12 (expressao -> expressao SOMA expressao .)
+    ID              reduce using rule 12 (expressao -> expressao SOMA expressao .)
+    FUNCAO          reduce using rule 12 (expressao -> expressao SOMA expressao .)
+    $end            reduce using rule 12 (expressao -> expressao SOMA expressao .)
+    FECHA_PARENTESES reduce using rule 12 (expressao -> expressao SOMA expressao .)
+    VIRGULA         reduce using rule 12 (expressao -> expressao SOMA expressao .)
+    MULTIPLICACAO   shift and go to state 21
+    DIVISAO         shift and go to state 22
+    POTENCIA        shift and go to state 23
+
+  ! MULTIPLICACAO   [ reduce using rule 12 (expressao -> expressao SOMA expressao .) ]
+  ! DIVISAO         [ reduce using rule 12 (expressao -> expressao SOMA expressao .) ]
+  ! POTENCIA        [ reduce using rule 12 (expressao -> expressao SOMA expressao .) ]
+  ! SOMA            [ shift and go to state 19 ]
+  ! SUBTRACAO       [ shift and go to state 20 ]
+
+
+state 35
+
+    (13) expressao -> expressao SUBTRACAO expressao .
+    (12) expressao -> expressao . SOMA expressao
+    (13) expressao -> expressao . SUBTRACAO expressao
+    (14) expressao -> expressao . MULTIPLICACAO expressao
+    (15) expressao -> expressao . DIVISAO expressao
+    (16) expressao -> expressao . POTENCIA expressao
+
+    SOMA            reduce using rule 13 (expressao -> expressao SUBTRACAO expressao .)
+    SUBTRACAO       reduce using rule 13 (expressao -> expressao SUBTRACAO expressao .)
+    ID              reduce using rule 13 (expressao -> expressao SUBTRACAO expressao .)
+    FUNCAO          reduce using rule 13 (expressao -> expressao SUBTRACAO expressao .)
+    $end            reduce using rule 13 (expressao -> expressao SUBTRACAO expressao .)
+    FECHA_PARENTESES reduce using rule 13 (expressao -> expressao SUBTRACAO expressao .)
+    VIRGULA         reduce using rule 13 (expressao -> expressao SUBTRACAO expressao .)
+    MULTIPLICACAO   shift and go to state 21
+    DIVISAO         shift and go to state 22
+    POTENCIA        shift and go to state 23
+
+  ! MULTIPLICACAO   [ reduce using rule 13 (expressao -> expressao SUBTRACAO expressao .) ]
+  ! DIVISAO         [ reduce using rule 13 (expressao -> expressao SUBTRACAO expressao .) ]
+  ! POTENCIA        [ reduce using rule 13 (expressao -> expressao SUBTRACAO expressao .) ]
+  ! SOMA            [ shift and go to state 19 ]
+  ! SUBTRACAO       [ shift and go to state 20 ]
+
+
+state 36
+
+    (14) expressao -> expressao MULTIPLICACAO expressao .
+    (12) expressao -> expressao . SOMA expressao
+    (13) expressao -> expressao . SUBTRACAO expressao
+    (14) expressao -> expressao . MULTIPLICACAO expressao
+    (15) expressao -> expressao . DIVISAO expressao
+    (16) expressao -> expressao . POTENCIA expressao
+
+    SOMA            reduce using rule 14 (expressao -> expressao MULTIPLICACAO expressao .)
+    SUBTRACAO       reduce using rule 14 (expressao -> expressao MULTIPLICACAO expressao .)
+    MULTIPLICACAO   reduce using rule 14 (expressao -> expressao MULTIPLICACAO expressao .)
+    DIVISAO         reduce using rule 14 (expressao -> expressao MULTIPLICACAO expressao .)
+    ID              reduce using rule 14 (expressao -> expressao MULTIPLICACAO expressao .)
+    FUNCAO          reduce using rule 14 (expressao -> expressao MULTIPLICACAO expressao .)
+    $end            reduce using rule 14 (expressao -> expressao MULTIPLICACAO expressao .)
+    FECHA_PARENTESES reduce using rule 14 (expressao -> expressao MULTIPLICACAO expressao .)
+    VIRGULA         reduce using rule 14 (expressao -> expressao MULTIPLICACAO expressao .)
+    POTENCIA        shift and go to state 23
+
+  ! POTENCIA        [ reduce using rule 14 (expressao -> expressao MULTIPLICACAO expressao .) ]
+  ! SOMA            [ shift and go to state 19 ]
+  ! SUBTRACAO       [ shift and go to state 20 ]
+  ! MULTIPLICACAO   [ shift and go to state 21 ]
+  ! DIVISAO         [ shift and go to state 22 ]
+
+
+state 37
+
+    (15) expressao -> expressao DIVISAO expressao .
+    (12) expressao -> expressao . SOMA expressao
+    (13) expressao -> expressao . SUBTRACAO expressao
+    (14) expressao -> expressao . MULTIPLICACAO expressao
+    (15) expressao -> expressao . DIVISAO expressao
+    (16) expressao -> expressao . POTENCIA expressao
+
+    SOMA            reduce using rule 15 (expressao -> expressao DIVISAO expressao .)
+    SUBTRACAO       reduce using rule 15 (expressao -> expressao DIVISAO expressao .)
+    MULTIPLICACAO   reduce using rule 15 (expressao -> expressao DIVISAO expressao .)
+    DIVISAO         reduce using rule 15 (expressao -> expressao DIVISAO expressao .)
+    ID              reduce using rule 15 (expressao -> expressao DIVISAO expressao .)
+    FUNCAO          reduce using rule 15 (expressao -> expressao DIVISAO expressao .)
+    $end            reduce using rule 15 (expressao -> expressao DIVISAO expressao .)
+    FECHA_PARENTESES reduce using rule 15 (expressao -> expressao DIVISAO expressao .)
+    VIRGULA         reduce using rule 15 (expressao -> expressao DIVISAO expressao .)
+    POTENCIA        shift and go to state 23
+
+  ! POTENCIA        [ reduce using rule 15 (expressao -> expressao DIVISAO expressao .) ]
+  ! SOMA            [ shift and go to state 19 ]
+  ! SUBTRACAO       [ shift and go to state 20 ]
+  ! MULTIPLICACAO   [ shift and go to state 21 ]
+  ! DIVISAO         [ shift and go to state 22 ]
+
+
+state 38
+
+    (16) expressao -> expressao POTENCIA expressao .
+    (12) expressao -> expressao . SOMA expressao
+    (13) expressao -> expressao . SUBTRACAO expressao
+    (14) expressao -> expressao . MULTIPLICACAO expressao
+    (15) expressao -> expressao . DIVISAO expressao
+    (16) expressao -> expressao . POTENCIA expressao
+
+    SOMA            reduce using rule 16 (expressao -> expressao POTENCIA expressao .)
+    SUBTRACAO       reduce using rule 16 (expressao -> expressao POTENCIA expressao .)
+    MULTIPLICACAO   reduce using rule 16 (expressao -> expressao POTENCIA expressao .)
+    DIVISAO         reduce using rule 16 (expressao -> expressao POTENCIA expressao .)
+    ID              reduce using rule 16 (expressao -> expressao POTENCIA expressao .)
+    FUNCAO          reduce using rule 16 (expressao -> expressao POTENCIA expressao .)
+    $end            reduce using rule 16 (expressao -> expressao POTENCIA expressao .)
+    FECHA_PARENTESES reduce using rule 16 (expressao -> expressao POTENCIA expressao .)
+    VIRGULA         reduce using rule 16 (expressao -> expressao POTENCIA expressao .)
+    POTENCIA        shift and go to state 23
+
+  ! POTENCIA        [ reduce using rule 16 (expressao -> expressao POTENCIA expressao .) ]
+  ! SOMA            [ shift and go to state 19 ]
+  ! SUBTRACAO       [ shift and go to state 20 ]
+  ! MULTIPLICACAO   [ shift and go to state 21 ]
+  ! DIVISAO         [ shift and go to state 22 ]
+
+
+state 39
+
+    (18) expressao -> ABRE_PARENTESES expressao FECHA_PARENTESES .
+
+    SOMA            reduce using rule 18 (expressao -> ABRE_PARENTESES expressao FECHA_PARENTESES .)
+    SUBTRACAO       reduce using rule 18 (expressao -> ABRE_PARENTESES expressao FECHA_PARENTESES .)
+    MULTIPLICACAO   reduce using rule 18 (expressao -> ABRE_PARENTESES expressao FECHA_PARENTESES .)
+    DIVISAO         reduce using rule 18 (expressao -> ABRE_PARENTESES expressao FECHA_PARENTESES .)
+    POTENCIA        reduce using rule 18 (expressao -> ABRE_PARENTESES expressao FECHA_PARENTESES .)
+    ID              reduce using rule 18 (expressao -> ABRE_PARENTESES expressao FECHA_PARENTESES .)
+    FUNCAO          reduce using rule 18 (expressao -> ABRE_PARENTESES expressao FECHA_PARENTESES .)
+    $end            reduce using rule 18 (expressao -> ABRE_PARENTESES expressao FECHA_PARENTESES .)
+    FECHA_PARENTESES reduce using rule 18 (expressao -> ABRE_PARENTESES expressao FECHA_PARENTESES .)
+    VIRGULA         reduce using rule 18 (expressao -> ABRE_PARENTESES expressao FECHA_PARENTESES .)
+
+
+state 40
+
+    (10) lista_ids -> ID VIRGULA . lista_ids
+    (10) lista_ids -> . ID VIRGULA lista_ids
+    (11) lista_ids -> . ID
+
+    ID              shift and go to state 26
+
+    lista_ids                      shift and go to state 44
+
+state 41
+
+    (7) declaracao_funcao -> FUNCAO ID ABRE_PARENTESES parametros_formais FECHA_PARENTESES . IGUAL expressao
+
+    IGUAL           shift and go to state 45
+
+
+state 42
+
+    (22) expressao -> ID ABRE_PARENTESES argumentos FECHA_PARENTESES .
+
+    SOMA            reduce using rule 22 (expressao -> ID ABRE_PARENTESES argumentos FECHA_PARENTESES .)
+    SUBTRACAO       reduce using rule 22 (expressao -> ID ABRE_PARENTESES argumentos FECHA_PARENTESES .)
+    MULTIPLICACAO   reduce using rule 22 (expressao -> ID ABRE_PARENTESES argumentos FECHA_PARENTESES .)
+    DIVISAO         reduce using rule 22 (expressao -> ID ABRE_PARENTESES argumentos FECHA_PARENTESES .)
+    POTENCIA        reduce using rule 22 (expressao -> ID ABRE_PARENTESES argumentos FECHA_PARENTESES .)
+    ID              reduce using rule 22 (expressao -> ID ABRE_PARENTESES argumentos FECHA_PARENTESES .)
+    FUNCAO          reduce using rule 22 (expressao -> ID ABRE_PARENTESES argumentos FECHA_PARENTESES .)
+    $end            reduce using rule 22 (expressao -> ID ABRE_PARENTESES argumentos FECHA_PARENTESES .)
+    FECHA_PARENTESES reduce using rule 22 (expressao -> ID ABRE_PARENTESES argumentos FECHA_PARENTESES .)
+    VIRGULA         reduce using rule 22 (expressao -> ID ABRE_PARENTESES argumentos FECHA_PARENTESES .)
+
+
+state 43
+
+    (25) lista_expressoes -> expressao VIRGULA . lista_expressoes
+    (25) lista_expressoes -> . expressao VIRGULA lista_expressoes
+    (26) lista_expressoes -> . expressao
+    (12) expressao -> . expressao SOMA expressao
+    (13) expressao -> . expressao SUBTRACAO expressao
+    (14) expressao -> . expressao MULTIPLICACAO expressao
+    (15) expressao -> . expressao DIVISAO expressao
+    (16) expressao -> . expressao POTENCIA expressao
+    (17) expressao -> . SUBTRACAO expressao
+    (18) expressao -> . ABRE_PARENTESES expressao FECHA_PARENTESES
+    (19) expressao -> . NUM_INT
+    (20) expressao -> . NUM_FLOAT
+    (21) expressao -> . ID
+    (22) expressao -> . ID ABRE_PARENTESES argumentos FECHA_PARENTESES
+
+    SUBTRACAO       shift and go to state 13
+    ABRE_PARENTESES shift and go to state 14
+    NUM_INT         shift and go to state 15
+    NUM_FLOAT       shift and go to state 16
+    ID              shift and go to state 11
+
+    expressao                      shift and go to state 33
+    lista_expressoes               shift and go to state 46
+
+state 44
+
+    (10) lista_ids -> ID VIRGULA lista_ids .
+
+    FECHA_PARENTESES reduce using rule 10 (lista_ids -> ID VIRGULA lista_ids .)
+
+
+state 45
+
+    (7) declaracao_funcao -> FUNCAO ID ABRE_PARENTESES parametros_formais FECHA_PARENTESES IGUAL . expressao
+    (12) expressao -> . expressao SOMA expressao
+    (13) expressao -> . expressao SUBTRACAO expressao
+    (14) expressao -> . expressao MULTIPLICACAO expressao
+    (15) expressao -> . expressao DIVISAO expressao
+    (16) expressao -> . expressao POTENCIA expressao
+    (17) expressao -> . SUBTRACAO expressao
+    (18) expressao -> . ABRE_PARENTESES expressao FECHA_PARENTESES
+    (19) expressao -> . NUM_INT
+    (20) expressao -> . NUM_FLOAT
+    (21) expressao -> . ID
+    (22) expressao -> . ID ABRE_PARENTESES argumentos FECHA_PARENTESES
+
+    SUBTRACAO       shift and go to state 13
+    ABRE_PARENTESES shift and go to state 14
+    NUM_INT         shift and go to state 15
+    NUM_FLOAT       shift and go to state 16
+    ID              shift and go to state 11
+
+    expressao                      shift and go to state 47
+
+state 46
+
+    (25) lista_expressoes -> expressao VIRGULA lista_expressoes .
+
+    FECHA_PARENTESES reduce using rule 25 (lista_expressoes -> expressao VIRGULA lista_expressoes .)
+
+
+state 47
+
+    (7) declaracao_funcao -> FUNCAO ID ABRE_PARENTESES parametros_formais FECHA_PARENTESES IGUAL expressao .
+    (12) expressao -> expressao . SOMA expressao
+    (13) expressao -> expressao . SUBTRACAO expressao
+    (14) expressao -> expressao . MULTIPLICACAO expressao
+    (15) expressao -> expressao . DIVISAO expressao
+    (16) expressao -> expressao . POTENCIA expressao
+
+    ID              reduce using rule 7 (declaracao_funcao -> FUNCAO ID ABRE_PARENTESES parametros_formais FECHA_PARENTESES IGUAL expressao .)
+    FUNCAO          reduce using rule 7 (declaracao_funcao -> FUNCAO ID ABRE_PARENTESES parametros_formais FECHA_PARENTESES IGUAL expressao .)
+    $end            reduce using rule 7 (declaracao_funcao -> FUNCAO ID ABRE_PARENTESES parametros_formais FECHA_PARENTESES IGUAL expressao .)
+    SOMA            shift and go to state 19
+    SUBTRACAO       shift and go to state 20
+    MULTIPLICACAO   shift and go to state 21
+    DIVISAO         shift and go to state 22
+    POTENCIA        shift and go to state 23
+

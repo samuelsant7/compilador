@@ -52,30 +52,30 @@ compilador_projeto/
 
 ### Como Executar o Programa
 
-##1. Abra a pasta "compilador_projeto" no **Prompt de Comando** ou **PowerShell** do Windows##
+## 1. Abra a pasta "compilador_projeto" no **Prompt de Comando** ou **PowerShell** do Windows
 
-##2. Configurar o Ambiente Virtual##
+## 2. Configurar o Ambiente Virtual
 
    2.1. Criar o ambiente virtual:
 
-         | python -m venv venv
+         python -m venv venv
 
    2.2. Ativar o ambiente virtual:
 
-         | .\venv\Scripts\Activate
+         .\venv\Scripts\Activate
 
    É comum a política de execução estar bloqueando scripts, então o Windows não deixa ativar o ambiente virtual.
    Neste caso, executar este script, e repetir o processo: 
 
-         | Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+         Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 
-##3.  Instalar a Dependência##
+## 3.  Instalar a Dependência
 
-         | pip install ply
+         pip install ply
 
-##4. Executar o Projeto##
+## 4. Executar o Projeto
 
-         | python src/main.py
+         python src/main.py
 
 
 

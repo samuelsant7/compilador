@@ -50,4 +50,13 @@ compilador_projeto/
 | **Semântica** | `semantic_analyzer.py` | Tabela de Símbolos e Verificação de Tipos |
 | **Geração de Código** | `intermediate_code_gen.py` | Código de Três Endereços (Quadruplas) |
 
+### Como Executar o Programa
+
+1. Abra a pasta "compilador_projeto no **Prompt de Comando** ou **PowerShell** do Windows
+
+2. Configurar o Ambiente Virtual
+
+   2.1. Criar o ambiente virtual:
+       | python -m venv venv
+
 

@@ -41,15 +41,6 @@ compilador_projeto/
 └── README.md             # Documentação do projeto
 ```
 
-### Detalhamento da Implementação
-
-| Fase | Componente | Tecnologia/Abordagem |
-| :--- | :--- | :--- |
-| **Léxica** | `lexer.py` | `ply.lex` |
-| **Sintática** | `parser.py` | `ply.yacc` (Gramática LR) |
-| **Semântica** | `semantic_analyzer.py` | Tabela de Símbolos e Verificação de Tipos |
-| **Geração de Código** | `intermediate_code_gen.py` | Código de Três Endereços (Quadruplas) |
-
 ## Como Executar o Programa
 
 ### 1. Abra a pasta "compilador_projeto" no **Prompt de Comando** ou **PowerShell** do Windows
@@ -77,6 +68,15 @@ compilador_projeto/
 
          python src/main.py
 
+
+### Detalhamento da Implementação
+
+| Fase | Componente | Tecnologia/Abordagem |
+| :--- | :--- | :--- |
+| **Léxica** | `lexer.py` | `ply.lex` |
+| **Sintática** | `parser.py` | `ply.yacc` (Gramática LR) |
+| **Semântica** | `semantic_analyzer.py` | Tabela de Símbolos e Verificação de Tipos |
+| **Geração de Código** | `intermediate_code_gen.py` | Código de Três Endereços (Quadruplas) |
 
 
 

@@ -2,7 +2,7 @@
 
 ## 1\. Introdução
 
-Este relatório documenta o desenvolvimento de um mini compilador, conforme solicitado no projeto de PCG (Projeto de Componente Curricular) da disciplina de Compiladores. O objetivo principal foi construir um compilador capaz de analisar e traduzir uma linguagem de expressões matemáticas com suporte a funções definidas pelo usuário, variáveis, operadores aritméticos e escopo simples.
+Este relatório documenta o desenvolvimento de um mini compilador, conforme solicitado no projeto de PCG da disciplina de Compiladores. O objetivo principal foi construir um compilador capaz de analisar e traduzir uma linguagem de expressões matemáticas com suporte a funções definidas pelo usuário, variáveis, operadores aritméticos e escopo simples.
 
 A implementação foi realizada em **Python**, utilizando a biblioteca **PLY (Python Lex-Yacc)** para as fases de análise léxica e sintática, o que permitiu uma construção eficiente e modular do compilador.
 

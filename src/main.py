@@ -91,13 +91,60 @@ def run_tests(file_path, expected_to_fail=False):
     except Exception as e:
         print(f"Erro inesperado durante a execução do teste: {e}")
 
+
+def main_menu():
+    import sys
+    
+    while True:
+        print("\n" + "="*30)
+        print(" MINI COMPILADOR - MENU ")
+        print("="*30)
+        print("1: Rodar Testes Automáticos (validos e invalidos)")
+        print("2: Testar Código Manualmente (Interativo)")
+        print("3: Sair")
+        print("="*30)
+        
+        try:
+            escolha = input("Escolha o modo (1, 2 ou 3): ").strip()
+        except EOFError:
+            print("\nEntrada cancelada. Saindo.")
+            break
+        except KeyboardInterrupt:
+            print("\nOperação cancelada. Saindo.")
+            break
+
+        if escolha == '1':
+            # Modo 1: Rodar Testes Automáticos
+            run_tests('tests/test_valid.txt', expected_to_fail=False)
+            run_tests('tests/test_invalid.txt', expected_to_fail=True)
+            
+        elif escolha == '2':
+            # Modo 2: Teste Manual Interativo
+            print("\n--- Modo de Teste Interativo ---")
+            print("Digite seu código (tecle Enter e depois Ctrl+D ou Ctrl+Z+Enter para finalizar):")
+            
+            try:
+                # Lê todas as linhas digitadas pelo usuário até o EOF
+                codigo_interativo = sys.stdin.read()
+            except EOFError:
+                print("\nEntrada cancelada. Voltando ao menu.")
+                continue
+            except KeyboardInterrupt:
+                print("\nOperação cancelada. Voltando ao menu.")
+                continue
+                
+            if codigo_interativo.strip():
+                compile_code(codigo_interativo)
+            else:
+                print("Nenhum código fornecido.")
+                
+        elif escolha == '3':
+            print("Saindo do Mini Compilador. Até logo!")
+            break
+            
+        else:
+            print("Escolha inválida. Por favor, digite 1, 2 ou 3.")
+
 if __name__ == '__main__':
-    # Resolve caminhos automaticamente, independente de Windows ou Linux
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))      # src/
-    PROJECT_DIR = os.path.dirname(BASE_DIR)                    # compilador_projeto/
+    main_menu()
 
-    test_valid = os.path.join(PROJECT_DIR, "tests", "test_valid.txt")
-    test_invalid = os.path.join(PROJECT_DIR, "tests", "test_invalid.txt")
-
-    run_tests(test_valid, expected_to_fail=False)
-    run_tests(test_invalid, expected_to_fail=True)

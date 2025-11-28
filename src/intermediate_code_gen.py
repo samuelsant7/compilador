@@ -142,5 +142,5 @@ class IntermediateCodeGenerator:
 
 # Exemplo de uso (para testes internos)
 if __name__ == '__main__':
-    # Este módulo não deve ser executado diretamente, mas sim integrado ao main.py
+    
     print("Módulo de Geração de Código Intermediário pronto para integração.")
